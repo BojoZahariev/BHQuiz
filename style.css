@@ -7,3 +7,20 @@
 .main {
   text-align: center;
 }
+
+#question {
+  padding: 20px;
+}
+
+.answersDiv {
+  display: flex;
+  flex-direction: column;
+
+  width: 200px;
+  margin: 5px auto;
+}
+
+.answers {
+  margin: 5px;
+  cursor: pointer;
+}
