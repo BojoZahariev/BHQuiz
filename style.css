@@ -24,3 +24,11 @@
   margin: 5px;
   cursor: pointer;
 }
+
+.checked {
+  color: red;
+}
+
+#quizDiv {
+  display: none;
+}
