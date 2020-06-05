@@ -87,15 +87,20 @@ nextBtn.addEventListener('click', e => {
 });
 
 */
+var score = 0;
+var choice;
 
 const headDiv = document.querySelector('#headDiv');
 const startBtn = document.querySelector('#startBtn');
-const next1 = document.querySelector('#next1');
 
 //quiz
 const quizDiv = document.querySelector('#quizDiv');
 const quiz1 = document.querySelector('#quiz1');
 const quiz2 = document.querySelector('#quiz2');
+const next1 = document.querySelector('#next1');
+const pre1 = document.querySelector('#pre1');
+
+const answers2 = document.querySelectorAll('.answers2');
 
 const clearScreen = () => {
   let containers = document.getElementsByClassName('quizPages');
@@ -110,8 +115,57 @@ startBtn.addEventListener('click', e => {
   quiz1.style.display = 'block';
 });
 
+const checkMatch = answer => {
+  if (answer === correct) {
+    score += 1;
+  }
+};
+/*
+//Quiz1
+Array.from(answers).forEach(element => {
+  element.addEventListener('click', e => {
+    //remove the class for checked
+    Array.from(answers).forEach(element => {
+      element.classList.remove('checked');
+    });
+    //choice = element.textContent;
+    element.classList.add('checked');
+  });
+});
+*/
 next1.addEventListener('click', e => {
   clearScreen();
-
   quiz2.style.display = 'block';
 });
+
+pre1.addEventListener('click', e => {
+  clearScreen();
+  quiz1.style.display = 'block';
+});
+
+/*
+//Quiz2
+Array.from(answers2).forEach(element => {
+  element.addEventListener('click', e => {
+    //remove the class for checked
+    Array.from(answers2).forEach(element => {
+      element.classList.remove('checked');
+    });
+    //choice = element.textContent;
+    element.classList.add('checked');
+  });
+});
+*/
+
+const clickControl = (answer, cl) => {
+  let clickedBtn = document.getElementById(answer).textContent;
+  let allAnswers = document.getElementsByClassName(cl);
+  //remove the class for checked
+  Array.from(allAnswers).forEach(element => {
+    element.classList.remove('checked');
+  });
+
+  document.getElementById(answer).classList.add('checked');
+  console.log(clickedBtn);
+  choice = clickedBtn;
+};
