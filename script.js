@@ -24,6 +24,7 @@ const nextBtn = document.querySelector('#nextBtn');
 
 var correct = question1correct;
 var score = 0;
+var choice;
 
 startBtn.addEventListener('click', e => {
   headDiv.style.display = 'none';
@@ -43,8 +44,7 @@ Array.from(answers).forEach(element => {
     Array.from(answers).forEach(element => {
       element.classList.remove('checked');
     });
-
-    checkMatch(element.textContent);
+    choice = element.textContent;
     element.classList.add('checked');
   });
 });
@@ -54,3 +54,8 @@ const checkMatch = answer => {
     score += 1;
   }
 };
+
+nextBtn.addEventListener('click', e => {
+  checkMatch(choice);
+  console.log(score);
+});
