@@ -98,6 +98,7 @@ const quizDiv = document.querySelector('#quizDiv');
 const quiz1 = document.querySelector('#quiz1');
 const quiz2 = document.querySelector('#quiz2');
 const next1 = document.querySelector('#next1');
+const next2 = document.querySelector('#next2');
 const pre1 = document.querySelector('#pre1');
 
 const answers2 = document.querySelectorAll('.answers2');
@@ -116,25 +117,17 @@ startBtn.addEventListener('click', e => {
 });
 
 const checkMatch = answer => {
-  if (answer === correct) {
+  let correct = document.getElementById(answer).textContent;
+  if (choice === correct) {
     score += 1;
+    console.log(score);
   }
 };
-/*
+
 //Quiz1
-Array.from(answers).forEach(element => {
-  element.addEventListener('click', e => {
-    //remove the class for checked
-    Array.from(answers).forEach(element => {
-      element.classList.remove('checked');
-    });
-    //choice = element.textContent;
-    element.classList.add('checked');
-  });
-});
-*/
 next1.addEventListener('click', e => {
   clearScreen();
+  checkMatch('correct1');
   quiz2.style.display = 'block';
 });
 
@@ -143,19 +136,11 @@ pre1.addEventListener('click', e => {
   quiz1.style.display = 'block';
 });
 
-/*
-//Quiz2
-Array.from(answers2).forEach(element => {
-  element.addEventListener('click', e => {
-    //remove the class for checked
-    Array.from(answers2).forEach(element => {
-      element.classList.remove('checked');
-    });
-    //choice = element.textContent;
-    element.classList.add('checked');
-  });
+next2.addEventListener('click', e => {
+  clearScreen();
+  checkMatch('correct2');
+  quiz2.style.display = 'block';
 });
-*/
 
 const clickControl = (answer, cl) => {
   let clickedBtn = document.getElementById(answer).textContent;
