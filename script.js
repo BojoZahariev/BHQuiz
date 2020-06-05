@@ -1,4 +1,6 @@
-/*CHANGE BELOW*/
+/*
+
+
 //Question 1
 var question1Text = 'Question1?';
 var answer1aText = 'answer1a';
@@ -16,7 +18,7 @@ var answer2cText = 'answer2c';
 var answer2dText = 'answer2d';
 
 var question2correct = 'answer2a';
-/*CHANGE ABOVE*/
+
 
 //Start
 const headDiv = document.querySelector('#headDiv');
@@ -82,4 +84,34 @@ nextBtn.addEventListener('click', e => {
   answer4.textContent = answer2dText;
 
   correct = question2correct;
+});
+
+*/
+
+const headDiv = document.querySelector('#headDiv');
+const startBtn = document.querySelector('#startBtn');
+const next1 = document.querySelector('#next1');
+
+//quiz
+const quizDiv = document.querySelector('#quizDiv');
+const quiz1 = document.querySelector('#quiz1');
+const quiz2 = document.querySelector('#quiz2');
+
+const clearScreen = () => {
+  let containers = document.getElementsByClassName('quizPages');
+  Array.from(containers).forEach(element => {
+    element.style.display = 'none';
+  });
+};
+
+startBtn.addEventListener('click', e => {
+  headDiv.style.display = 'none';
+  quizDiv.style.display = 'block';
+  quiz1.style.display = 'block';
+});
+
+next1.addEventListener('click', e => {
+  clearScreen();
+
+  quiz2.style.display = 'block';
 });

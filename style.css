@@ -8,10 +8,6 @@
   text-align: center;
 }
 
-#question {
-  padding: 20px;
-}
-
 .answersDiv {
   display: flex;
   flex-direction: column;
@@ -30,5 +26,9 @@
 }
 
 #quizDiv {
+  display: none;
+}
+
+.quizPages {
   display: none;
 }
