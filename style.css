@@ -36,3 +36,28 @@
 .correctAnswers {
   display: none;
 }
+
+/*OUTCOME*/
+#wrongAnswers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.wrongDiv {
+  border: 1px solid #222;
+  padding: 20px;
+  margin: 10px;
+}
+
+.questionWrong {
+  color: green;
+}
+
+.rightAnswer {
+  color: blue;
+}
+
+.wrongAnswer {
+  color: red;
+}

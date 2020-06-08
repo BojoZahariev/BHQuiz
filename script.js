@@ -23,6 +23,7 @@ const mes3 = document.querySelector('#mes3');
 const final = document.querySelector('#final');
 const finalScore = document.querySelector('#finalScore');
 const reload = document.querySelector('#reload');
+const wrongAnswers = document.querySelector('#wrongAnswers');
 
 //const answers2 = document.querySelectorAll('.answers2');
 
@@ -33,15 +34,50 @@ const clearScreen = () => {
   });
 };
 
-const checkMatch = (answer, question) => {
+const checkMatch = (answer, question, source) => {
   let correct = document.getElementById(answer).textContent;
   if (choice === correct) {
     score[question] = 1;
   } else {
     score[question] = 0;
-  }
 
-  console.log(score);
+    outcome(document.getElementById(source).textContent, choice, correct);
+  }
+};
+
+const outcome = (question, wrong, right) => {
+  let wrongDiv = document.createElement('div');
+  wrongDiv.classList.add('wrongDiv');
+  let wrong1 = document.createElement('p');
+
+  //wrong1.textContent = `The correct answer to ${span1.textContent} is ${right}, you answered ${wrong}`;
+  wrong1.textContent = 'The correct answer to';
+  let span1 = document.createElement('p');
+  span1.classList.add('questionWrong');
+  span1.textContent = question;
+
+  let span2 = document.createElement('span');
+  span2.textContent = 'is:';
+
+  let span3 = document.createElement('p');
+  span3.classList.add('rightAnswer');
+  span3.textContent = right;
+
+  let span4 = document.createElement('p');
+  span4.textContent = 'You answered:';
+
+  let span5 = document.createElement('p');
+  span5.classList.add('wrongAnswer');
+  span5.textContent = wrong;
+
+  wrongDiv.appendChild(wrong1);
+  wrongDiv.appendChild(span1);
+  wrongDiv.appendChild(span2);
+  wrongDiv.appendChild(span3);
+  wrongDiv.appendChild(span4);
+  wrongDiv.appendChild(span5);
+
+  wrongAnswers.appendChild(wrongDiv);
 };
 
 startBtn.addEventListener('click', e => {
@@ -54,10 +90,10 @@ startBtn.addEventListener('click', e => {
 next1.addEventListener('click', e => {
   if (checkClicked('answers1')) {
     clearScreen();
-    checkMatch('correct1', 0);
+    checkMatch('correct1', 0, 'question1');
     quiz2.style.display = 'block';
   } else {
-    mes1.textContent = 'make a choice';
+    mes1.textContent = 'Make a choice';
   }
 });
 
@@ -70,10 +106,10 @@ pre2.addEventListener('click', e => {
 next2.addEventListener('click', e => {
   if (checkClicked('answers2')) {
     clearScreen();
-    checkMatch('correct2', 1);
+    checkMatch('correct2', 1, 'question2');
     quiz3.style.display = 'block';
   } else {
-    mes2.textContent = 'make a choice';
+    mes2.textContent = 'Make a choice';
   }
 });
 
@@ -81,7 +117,7 @@ next2.addEventListener('click', e => {
 finish.addEventListener('click', e => {
   if (checkClicked('answers3')) {
     clearScreen();
-    checkMatch('correct3', 2);
+    checkMatch('correct3', 2, 'question3');
 
     //summarize all score
     const add = (a, b) => a + b;
@@ -89,7 +125,7 @@ finish.addEventListener('click', e => {
     final.style.display = 'block';
     finalScore.textContent = sum;
   } else {
-    mes3.textContent = 'make a choice';
+    mes3.textContent = 'Make a choice';
   }
 });
 
@@ -120,18 +156,6 @@ const checkClicked = cl => {
   let allAnswers = document.getElementsByClassName(cl);
 
   const hasIt = element => element.classList.contains('checked');
-  console.log(Array.from(allAnswers).some(hasIt));
-  return Array.from(allAnswers).some(hasIt);
-  /*
 
-  Array.from(allAnswers).forEach(element => {
-    if (element.classList.contains('checked')) {
-      console.log('true');
-      return true;
-    } else {
-      console.log('false');
-      return false;
-    }
-  });
-  */
+  return Array.from(allAnswers).some(hasIt);
 };
