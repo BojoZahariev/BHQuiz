@@ -97,11 +97,14 @@ const startBtn = document.querySelector('#startBtn');
 const quizDiv = document.querySelector('#quizDiv');
 const quiz1 = document.querySelector('#quiz1');
 const quiz2 = document.querySelector('#quiz2');
+const quiz3 = document.querySelector('#quiz3');
 const next1 = document.querySelector('#next1');
 const next2 = document.querySelector('#next2');
-const pre1 = document.querySelector('#pre1');
+const finish = document.querySelector('#finish');
+const pre2 = document.querySelector('#pre2');
+const pre3 = document.querySelector('#pre3');
 
-const answers2 = document.querySelectorAll('.answers2');
+//const answers2 = document.querySelectorAll('.answers2');
 
 const clearScreen = () => {
   let containers = document.getElementsByClassName('quizPages');
@@ -109,12 +112,6 @@ const clearScreen = () => {
     element.style.display = 'none';
   });
 };
-
-startBtn.addEventListener('click', e => {
-  headDiv.style.display = 'none';
-  quizDiv.style.display = 'block';
-  quiz1.style.display = 'block';
-});
 
 const checkMatch = answer => {
   let correct = document.getElementById(answer).textContent;
@@ -124,6 +121,12 @@ const checkMatch = answer => {
   }
 };
 
+startBtn.addEventListener('click', e => {
+  headDiv.style.display = 'none';
+  quizDiv.style.display = 'block';
+  quiz1.style.display = 'block';
+});
+
 //Quiz1
 next1.addEventListener('click', e => {
   clearScreen();
@@ -131,7 +134,8 @@ next1.addEventListener('click', e => {
   quiz2.style.display = 'block';
 });
 
-pre1.addEventListener('click', e => {
+//Quiz2
+pre2.addEventListener('click', e => {
   clearScreen();
   quiz1.style.display = 'block';
 });
@@ -139,6 +143,18 @@ pre1.addEventListener('click', e => {
 next2.addEventListener('click', e => {
   clearScreen();
   checkMatch('correct2');
+  quiz3.style.display = 'block';
+});
+
+//Quiz3
+finish.addEventListener('click', e => {
+  clearScreen();
+  checkMatch('correct3');
+  quiz3.style.display = 'block';
+});
+
+pre3.addEventListener('click', e => {
+  clearScreen();
   quiz2.style.display = 'block';
 });
 
