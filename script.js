@@ -1,4 +1,5 @@
 var score = [];
+var allWrongs = [];
 var choice;
 var answered1 = false;
 var answered2 = false;
@@ -38,20 +39,22 @@ const checkMatch = (answer, question, source) => {
   let correct = document.getElementById(answer).textContent;
   if (choice === correct) {
     score[question] = 1;
+    //remove the stored wrong answer if changed to correct
+    allWrongs[question] = 0;
   } else {
     score[question] = 0;
-
-    outcome(document.getElementById(source).textContent, choice, correct);
+    //store the info for wrong answer
+    allWrongs[question] = outcome(document.getElementById(source).textContent, choice, correct);
   }
 };
 
+//display the outcome
 const outcome = (question, wrong, right) => {
   let wrongDiv = document.createElement('div');
   wrongDiv.classList.add('wrongDiv');
   let wrong1 = document.createElement('p');
 
-  //wrong1.textContent = `The correct answer to ${span1.textContent} is ${right}, you answered ${wrong}`;
-  wrong1.textContent = 'The correct answer to';
+  wrong1.textContent = 'The correct answer of the question:';
   let span1 = document.createElement('p');
   span1.classList.add('questionWrong');
   span1.textContent = question;
@@ -76,8 +79,28 @@ const outcome = (question, wrong, right) => {
   wrongDiv.appendChild(span3);
   wrongDiv.appendChild(span4);
   wrongDiv.appendChild(span5);
+  return wrongDiv;
+};
 
-  wrongAnswers.appendChild(wrongDiv);
+const clickControl = (answer, cl) => {
+  let clickedBtn = document.getElementById(answer).textContent;
+  let allAnswers = document.getElementsByClassName(cl);
+  //remove the class for checked
+  Array.from(allAnswers).forEach(element => {
+    element.classList.remove('checked');
+  });
+
+  document.getElementById(answer).classList.add('checked');
+  console.log(clickedBtn);
+  choice = clickedBtn;
+};
+
+const checkClicked = cl => {
+  let allAnswers = document.getElementsByClassName(cl);
+
+  const hasIt = element => element.classList.contains('checked');
+
+  return Array.from(allAnswers).some(hasIt);
 };
 
 startBtn.addEventListener('click', e => {
@@ -119,6 +142,13 @@ finish.addEventListener('click', e => {
     clearScreen();
     checkMatch('correct3', 2, 'question3');
 
+    //display the wrong ones
+    allWrongs.forEach(element => {
+      if (element !== 0) {
+        wrongAnswers.appendChild(element);
+      }
+    });
+
     //summarize all score
     const add = (a, b) => a + b;
     const sum = score.reduce(add);
@@ -138,24 +168,3 @@ pre3.addEventListener('click', e => {
 reload.addEventListener('click', e => {
   window.location.reload();
 });
-
-const clickControl = (answer, cl) => {
-  let clickedBtn = document.getElementById(answer).textContent;
-  let allAnswers = document.getElementsByClassName(cl);
-  //remove the class for checked
-  Array.from(allAnswers).forEach(element => {
-    element.classList.remove('checked');
-  });
-
-  document.getElementById(answer).classList.add('checked');
-  console.log(clickedBtn);
-  choice = clickedBtn;
-};
-
-const checkClicked = cl => {
-  let allAnswers = document.getElementsByClassName(cl);
-
-  const hasIt = element => element.classList.contains('checked');
-
-  return Array.from(allAnswers).some(hasIt);
-};
