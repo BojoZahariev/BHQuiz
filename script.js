@@ -87,7 +87,8 @@ nextBtn.addEventListener('click', e => {
 });
 
 */
-var score = 0;
+
+var score = [];
 var choice;
 
 const headDiv = document.querySelector('#headDiv');
@@ -103,6 +104,9 @@ const next2 = document.querySelector('#next2');
 const finish = document.querySelector('#finish');
 const pre2 = document.querySelector('#pre2');
 const pre3 = document.querySelector('#pre3');
+const final = document.querySelector('#final');
+const finalScore = document.querySelector('#finalScore');
+const reload = document.querySelector('#reload');
 
 //const answers2 = document.querySelectorAll('.answers2');
 
@@ -113,12 +117,15 @@ const clearScreen = () => {
   });
 };
 
-const checkMatch = answer => {
+const checkMatch = (answer, question) => {
   let correct = document.getElementById(answer).textContent;
   if (choice === correct) {
-    score += 1;
-    console.log(score);
+    score[question] = 1;
+  } else {
+    score[question] = 0;
   }
+
+  console.log(score);
 };
 
 startBtn.addEventListener('click', e => {
@@ -130,7 +137,7 @@ startBtn.addEventListener('click', e => {
 //Quiz1
 next1.addEventListener('click', e => {
   clearScreen();
-  checkMatch('correct1');
+  checkMatch('correct1', 0);
   quiz2.style.display = 'block';
 });
 
@@ -142,20 +149,28 @@ pre2.addEventListener('click', e => {
 
 next2.addEventListener('click', e => {
   clearScreen();
-  checkMatch('correct2');
+  checkMatch('correct2', 1);
   quiz3.style.display = 'block';
 });
 
 //Quiz3
 finish.addEventListener('click', e => {
   clearScreen();
-  checkMatch('correct3');
-  quiz3.style.display = 'block';
+  checkMatch('correct3', 2);
+  const add = (a, b) => a + b;
+  const sum = score.reduce(add);
+  final.style.display = 'block';
+  finalScore.textContent = sum;
 });
 
 pre3.addEventListener('click', e => {
   clearScreen();
   quiz2.style.display = 'block';
+});
+
+//Final
+reload.addEventListener('click', e => {
+  window.location.reload();
 });
 
 const clickControl = (answer, cl) => {
