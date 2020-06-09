@@ -55,7 +55,7 @@ const outcome = (question, wrong, right) => {
   wrongDiv.classList.add('wrongDiv');
   let wrong1 = document.createElement('p');
 
-  wrong1.textContent = 'The correct answer of the question:';
+  wrong1.textContent = 'The correct answer of:';
   let span1 = document.createElement('p');
   span1.classList.add('questionWrong');
   span1.textContent = question;
