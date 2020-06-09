@@ -114,7 +114,7 @@ next1.addEventListener('click', e => {
   if (checkClicked('answers1')) {
     clearScreen();
     checkMatch('correct1', 0, 'question1');
-    quiz2.style.display = 'block';
+    quiz2.style.display = 'flex';
   } else {
     mes1.style.display = 'block';
   }

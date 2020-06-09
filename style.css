@@ -81,11 +81,38 @@ button {
   width: 400px;
   font-size: 25px;
   font-weight: 500;
-  padding: 30px;
-  border: 2px solid #124e78;
+  padding: 40px 20px;
+  border: 4px solid #124e78;
   background-color: #007dc6;
   color: #ffc220;
   border-radius: 10px;
+
+  -webkit-animation-name: appear;
+  animation-name: appear;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .answersDiv {
@@ -93,14 +120,74 @@ button {
   flex-direction: column;
   width: 400px;
   margin: 20px auto;
+  position: relative;
 }
 
 .answers {
-  margin: 10px;
+  margin: 10px 0px;
   cursor: pointer;
   border: 2px solid #124e78;
   border-radius: 10px;
   padding: 10px;
+  position: relative;
+  background-color: #ffc220;
+  font-size: 18px;
+
+  -webkit-animation-name: slide;
+  animation-name: slide;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+  from {
+    left: -50%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+@-webkit-keyframes slide {
+  from {
+    left: -50%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+.answersL {
+  -webkit-animation-name: slideL;
+  animation-name: slideL;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideL {
+  from {
+    right: -50%;
+  }
+
+  to {
+    right: 0;
+  }
+}
+
+@-webkit-keyframes slideL {
+  from {
+    right: -50%;
+  }
+
+  to {
+    right: 0;
+  }
 }
 
 .messages {
@@ -113,7 +200,8 @@ button {
 }
 
 .checked {
-  border-color: #65b32e;
+  background-color: #007dc6;
+  color: #ffc220;
 }
 
 .correctAnswers {
