@@ -6,10 +6,15 @@
   padding: 0;
 }
 
-.main {
-  height: 100vh;
-  text-align: center;
+body {
+  height: 100%;
   background-color: #f0f0c9;
+  background-size: cover;
+}
+
+.main {
+  min-height: 100vh;
+  text-align: center;
   font-family: 'Merriweather', serif;
   letter-spacing: 0.5px;
 }
@@ -30,6 +35,7 @@
 
 .center {
   margin: auto;
+  z-index: 99;
 }
 
 button {
@@ -243,6 +249,7 @@ button {
 }
 
 /*OUTCOME*/
+
 #wrongAnswers {
   display: flex;
   flex-flow: row wrap;
@@ -255,6 +262,14 @@ button {
   margin: 10px;
 }
 
+#prizeImg {
+  display: none;
+}
+
+.scoreP {
+  margin: 10px auto;
+}
+
 .questionWrong {
   color: green;
 }
@@ -265,6 +280,14 @@ button {
 
 .wrongAnswer {
   color: red;
+}
+
+canvas {
+  position: absolute;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
 }
 
 /*MEDIA*/
