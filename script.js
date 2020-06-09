@@ -1,6 +1,7 @@
 var score = [];
 var allWrongs = [];
 var choice;
+//change that accordingly
 var maxScore = 3;
 var answered1 = false;
 var answered2 = false;
@@ -40,7 +41,7 @@ const clearScreen = () => {
 
 const checkMatch = (answer, question, source) => {
   let correct = document.getElementById(answer).textContent;
-  if (choice === correct) {
+  if (choice.trim() === correct.trim()) {
     score[question] = 1;
     //remove the stored wrong answer if changed to correct
     allWrongs[question] = 0;
@@ -94,7 +95,7 @@ const clickControl = (answer, cl) => {
   });
 
   document.getElementById(answer).classList.add('checked');
-  console.log(clickedBtn);
+
   choice = clickedBtn;
 };
 
