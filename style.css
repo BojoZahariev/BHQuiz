@@ -11,6 +11,7 @@
   text-align: center;
   background-color: #f0f0c9;
   font-family: 'Merriweather', serif;
+  letter-spacing: 0.5px;
 }
 
 #headDiv {
@@ -58,39 +59,61 @@ button {
   position: absolute;
   bottom: 0;
   left: 0;
-  color: #222;
+  color: #474646;
+  padding: 5px;
 }
 
 .by {
   position: absolute;
   bottom: 0;
   right: 0;
-  color: #222;
+  color: #474646;
+  padding: 5px;
+}
+
+.quizPages {
+  display: none;
+  height: 100vh;
+  color: #124e78;
+}
+
+.questions {
+  width: 400px;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 30px;
+  border: 2px solid #124e78;
+  background-color: #007dc6;
+  color: #ffc220;
+  border-radius: 10px;
 }
 
 .answersDiv {
   display: flex;
   flex-direction: column;
-
-  width: 200px;
-  margin: 5px auto;
+  width: 400px;
+  margin: 20px auto;
 }
 
 .answers {
-  margin: 5px;
+  margin: 10px;
   cursor: pointer;
+  border: 2px solid #124e78;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.messages {
+  display: none;
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .checked {
-  color: red;
-}
-
-#quizDiv {
-  display: none;
-}
-
-.quizPages {
-  display: none;
+  border-color: #65b32e;
 }
 
 .correctAnswers {

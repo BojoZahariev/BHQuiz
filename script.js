@@ -18,6 +18,7 @@ const next2 = document.querySelector('#next2');
 const finish = document.querySelector('#finish');
 const pre2 = document.querySelector('#pre2');
 const pre3 = document.querySelector('#pre3');
+let messages = document.getElementsByClassName('messages');
 const mes1 = document.querySelector('#mes1');
 const mes2 = document.querySelector('#mes2');
 const mes3 = document.querySelector('#mes3');
@@ -29,7 +30,7 @@ const wrongAnswers = document.querySelector('#wrongAnswers');
 //const answers2 = document.querySelectorAll('.answers2');
 
 const clearScreen = () => {
-  let containers = document.getElementsByClassName('quizPages');
+  let containers = document.getElementsByClassName('containers');
   Array.from(containers).forEach(element => {
     element.style.display = 'none';
   });
@@ -105,8 +106,7 @@ const checkClicked = cl => {
 
 startBtn.addEventListener('click', e => {
   headDiv.style.display = 'none';
-  quizDiv.style.display = 'block';
-  quiz1.style.display = 'block';
+  quiz1.style.display = 'flex';
 });
 
 //Quiz1
@@ -116,23 +116,23 @@ next1.addEventListener('click', e => {
     checkMatch('correct1', 0, 'question1');
     quiz2.style.display = 'block';
   } else {
-    mes1.textContent = 'Make a choice';
+    mes1.style.display = 'block';
   }
 });
 
 //Quiz2
 pre2.addEventListener('click', e => {
   clearScreen();
-  quiz1.style.display = 'block';
+  quiz1.style.display = 'flex';
 });
 
 next2.addEventListener('click', e => {
   if (checkClicked('answers2')) {
     clearScreen();
     checkMatch('correct2', 1, 'question2');
-    quiz3.style.display = 'block';
+    quiz3.style.display = 'flex';
   } else {
-    mes2.textContent = 'Make a choice';
+    mes2.style.display = 'block';
   }
 });
 
@@ -155,13 +155,13 @@ finish.addEventListener('click', e => {
     final.style.display = 'block';
     finalScore.textContent = sum;
   } else {
-    mes3.textContent = 'Make a choice';
+    mes3.style.display = 'block';
   }
 });
 
 pre3.addEventListener('click', e => {
   clearScreen();
-  quiz2.style.display = 'block';
+  quiz2.style.display = 'flex';
 });
 
 //Final

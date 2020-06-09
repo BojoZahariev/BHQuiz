@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="description" content="Quiz" />
-    <!--
-    <link rel="icon" href="images/favicon.png" />
-    -->
+
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon32.png" />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
@@ -23,86 +22,85 @@
         </div>
 
         <p class="volume">Vol.1</p>
-        <p class="by">Brought to you by the Communications Team</p>
+        <p class="by">Brought to you by the GBS Communications Team</p>
       </div>
 
-      <div id="quizDiv">
-        <div class="quizPages" id="quiz1">
+      <div class="quizPages containers" id="quiz1">
+        <div class="center">
           <!--Change after-->
-          <p id="question1">GBS means?</p>
+          <p class="questions" id="question1">GBS is abbreviation for?</p>
           <!--Change before-->
 
           <div class="answersDiv">
             <!--Change after-->
-            <button class="answers answers1" id="answer1a" onclick="clickControl('answer1a', 'answers1')">Global Business Services</button>
-            <button class="answers answers1" id="answer1b" onclick="clickControl('answer1b', 'answers1')">answer1b</button>
-            <button class="answers answers1" id="answer1c" onclick="clickControl('answer1c', 'answers1')">answer1c</button>
-            <button class="answers answers1" id="answer1d" onclick="clickControl('answer1d', 'answers1')">answer1d</button>
+            <p class="answers answers1" id="answer1a" onclick="clickControl('answer1a', 'answers1')">Global Business Services</p>
+            <p class="answers answers1" id="answer1b" onclick="clickControl('answer1b', 'answers1')">answer1b</p>
+            <p class="answers answers1" id="answer1c" onclick="clickControl('answer1c', 'answers1')">answer1c</p>
+            <p class="answers answers1" id="answer1d" onclick="clickControl('answer1d', 'answers1')">answer1d</p>
             <!--Change before-->
           </div>
 
           <button id="next1">Next</button>
+        </div>
+        <!--Change after-->
+        <p class="correctAnswers" id="correct1">Global Business Services</p>
+        <!--Change before-->
 
+        <p class="messages containers" id="mes1">Please make a choice first.</p>
+      </div>
+
+      <div class="quizPages containers" id="quiz2">
+        <!--Change after-->
+        <p class="questions" id="question2">Question2</p>
+        <!--Change before-->
+
+        <div class="answersDiv">
           <!--Change after-->
-          <p class="correctAnswers" id="correct1">Global Business Services</p>
+          <button class="answers answers2" id="answer2a" onclick="clickControl('answer2a', 'answers2')">answer2a</button>
+          <button class="answers answers2" id="answer2b" onclick="clickControl('answer2b', 'answers2')">answer2b</button>
+          <button class="answers answers2" id="answer2c" onclick="clickControl('answer2c', 'answers2')">answer2c</button>
+          <button class="answers answers2" id="answer2d" onclick="clickControl('answer2d', 'answers2')">answer2d</button>
           <!--Change before-->
-
-          <p class="messages" id="mes1"></p>
         </div>
 
-        <div class="quizPages" id="quiz2">
+        <button id="pre2">Previous</button>
+        <button id="next2">Next</button>
+
+        <!--Change after-->
+        <p class="correctAnswers" id="correct2">answer2b</p>
+        <!--Change before-->
+
+        <p class="messages containers" id="mes2">Please make a choice first.</p>
+      </div>
+
+      <div class="quizPages containers" id="quiz3">
+        <!--Change after-->
+        <p class="questions" id="question3">Question3</p>
+        <!--Change before-->
+
+        <div class="answersDiv">
           <!--Change after-->
-          <p id="question2">Question2</p>
+          <button class="answers answers3" id="answer3a" onclick="clickControl('answer3a', 'answers3')">answer3a</button>
+          <button class="answers answers3" id="answer3b" onclick="clickControl('answer3b', 'answers3')">answer3b</button>
+          <button class="answers answers3" id="answer3c" onclick="clickControl('answer3c', 'answers3')">answer3c</button>
+          <button class="answers answers3" id="answer3d" onclick="clickControl('answer3d', 'answers3')">answer3d</button>
           <!--Change before-->
-
-          <div class="answersDiv">
-            <!--Change after-->
-            <button class="answers answers2" id="answer2a" onclick="clickControl('answer2a', 'answers2')">answer2a</button>
-            <button class="answers answers2" id="answer2b" onclick="clickControl('answer2b', 'answers2')">answer2b</button>
-            <button class="answers answers2" id="answer2c" onclick="clickControl('answer2c', 'answers2')">answer2c</button>
-            <button class="answers answers2" id="answer2d" onclick="clickControl('answer2d', 'answers2')">answer2d</button>
-            <!--Change before-->
-          </div>
-
-          <button id="pre2">Previous</button>
-          <button id="next2">Next</button>
-
-          <!--Change after-->
-          <p class="correctAnswers" id="correct2">answer2b</p>
-          <!--Change before-->
-
-          <p class="messages" id="mes2"></p>
         </div>
 
-        <div class="quizPages" id="quiz3">
-          <!--Change after-->
-          <p id="question3">Question3</p>
-          <!--Change before-->
+        <button id="pre3">Previous</button>
+        <button id="finish">Finish</button>
 
-          <div class="answersDiv">
-            <!--Change after-->
-            <button class="answers answers3" id="answer3a" onclick="clickControl('answer3a', 'answers3')">answer3a</button>
-            <button class="answers answers3" id="answer3b" onclick="clickControl('answer3b', 'answers3')">answer3b</button>
-            <button class="answers answers3" id="answer3c" onclick="clickControl('answer3c', 'answers3')">answer3c</button>
-            <button class="answers answers3" id="answer3d" onclick="clickControl('answer3d', 'answers3')">answer3d</button>
-            <!--Change before-->
-          </div>
+        <!--Change after-->
+        <p class="correctAnswers" id="correct3">answer3b</p>
+        <!--Change before-->
 
-          <button id="pre3">Previous</button>
-          <button id="finish">Finish</button>
+        <p class="messages containers" id="mes3">Please make a choice first.</p>
+      </div>
 
-          <!--Change after-->
-          <p class="correctAnswers" id="correct3">answer3b</p>
-          <!--Change before-->
-
-          <p class="messages" id="mes3"></p>
-        </div>
-
-        <div class="quizPages" id="final">
-          <p>Your score is: <span id="finalScore"></span></p>
-          <div id="wrongAnswers"></div>
-          <button id="reload">Try Again</button>
-        </div>
+      <div class="quizPages containers" id="final">
+        <p>Your score is: <span id="finalScore"></span></p>
+        <div id="wrongAnswers"></div>
+        <button id="reload">Try Again</button>
       </div>
     </div>
 
