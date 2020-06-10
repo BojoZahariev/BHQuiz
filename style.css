@@ -217,11 +217,10 @@ b {
 .messages {
   display: none;
   position: absolute;
-  bottom: 0;
+  bottom: 10%;
   left: 0;
   right: 0;
   margin: auto;
-  padding: 5px;
 }
 
 .checked {
@@ -372,5 +371,12 @@ canvas {
 
   #email {
     width: 200px;
+  }
+
+  .messages {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 }
