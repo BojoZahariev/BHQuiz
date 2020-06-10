@@ -3,9 +3,8 @@ var allWrongs = [];
 var choice;
 //change that accordingly
 var maxScore = 3;
-var answered1 = false;
-var answered2 = false;
-var answered3 = false;
+var name = 'Quiz 1';
+var finalResult;
 
 const headDiv = document.querySelector('#headDiv');
 const startBtn = document.querySelector('#startBtn');
@@ -29,6 +28,7 @@ const finalScore = document.querySelector('#finalScore');
 const reload = document.querySelector('#reload');
 const wrongAnswers = document.querySelector('#wrongAnswers');
 const prizeImg = document.querySelector('#prizeImg');
+const email = document.querySelector('#email');
 
 //const answers2 = document.querySelectorAll('.answers2');
 
@@ -105,6 +105,7 @@ const sumResult = () => {
 
 const getPrize = () => {
   prizeImg.style.display = 'block';
+  reload.style.display = 'none';
   confetti();
 };
 
@@ -153,7 +154,8 @@ finish.addEventListener('click', e => {
       }
     });
 
-    finalScore.textContent = `${sumResult()} / 3`;
+    finalResult = `${sumResult()} / ${maxScore}`;
+    finalScore.textContent = finalResult;
     if (sumResult() === maxScore) {
       getPrize();
     }
@@ -277,3 +279,8 @@ const confetti = () => {
   canvas.height = H;
   Draw();
 };
+
+//Send email with the results
+email.addEventListener('click', e => {
+  email.href = `mailto:GBScomms@asda.co.uk?subject=${name} Result: ${finalResult}`;
+});

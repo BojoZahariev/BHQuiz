@@ -65,7 +65,7 @@ button {
   position: absolute;
   bottom: 0;
   left: 0;
-  color: #474646;
+  color: #124e78;
   padding: 5px;
 }
 
@@ -73,7 +73,7 @@ button {
   position: absolute;
   bottom: 0;
   right: 0;
-  color: #474646;
+  color: #124e78;
   padding: 5px;
 }
 
@@ -279,6 +279,7 @@ b {
   font-size: 22px;
   font-weight: 600;
   padding: 5px;
+  margin: 10px;
 }
 
 .questionWrong {
@@ -316,6 +317,11 @@ b {
   color: #d62839;
 }
 
+#email {
+  text-decoration: none;
+  font-size: 14px;
+}
+
 canvas {
   position: absolute;
   overflow-y: hidden;
@@ -340,5 +346,30 @@ canvas {
 
   .by {
     font-size: 10px;
+    left: 0;
+    margin: auto;
+  }
+
+  .volume {
+    top: 0;
+  }
+
+  .wrongDiv {
+    padding: 5px;
+    margin: 10px;
+  }
+
+  #prizeImg {
+    width: 300px;
+  }
+
+  #reload,
+  #email {
+    display: block;
+    margin: 10px auto;
+  }
+
+  #email {
+    width: 200px;
   }
 }
