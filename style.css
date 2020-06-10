@@ -278,14 +278,37 @@ button {
 }
 
 .questionWrong {
-  color: green;
+  width: 200px;
+  margin: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 20px 10px;
+  border: 2px solid #124e78;
+  background-color: #007dc6;
+  color: #ffc220;
+  border-radius: 20px;
 }
 
 .rightAnswer {
-  color: blue;
+  margin: 5px auto;
+  width: 200px;
+  border: 2px solid #124e78;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 12px;
+  background-color: #007dc6;
+  color: #ffc220;
 }
 
 .wrongAnswer {
+  margin: 5px auto;
+  width: 200px;
+  border: 2px solid #124e78;
+  border-radius: 20px;
+  padding: 5px;
+
+  background-color: #ffc220;
+  font-size: 12px;
   color: #d62839;
 }
 

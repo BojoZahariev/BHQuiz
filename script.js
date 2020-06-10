@@ -56,32 +56,21 @@ const checkMatch = (answer, question, source) => {
 const outcome = (question, wrong, right) => {
   let wrongDiv = document.createElement('div');
   wrongDiv.classList.add('wrongDiv');
-  let wrong1 = document.createElement('p');
 
-  wrong1.textContent = 'The correct answer of:';
   let span1 = document.createElement('p');
   span1.classList.add('questionWrong');
   span1.textContent = question;
-
-  let span2 = document.createElement('span');
-  span2.textContent = 'is:';
 
   let span3 = document.createElement('p');
   span3.classList.add('rightAnswer');
   span3.textContent = right;
 
-  let span4 = document.createElement('p');
-  span4.textContent = 'You answered:';
-
   let span5 = document.createElement('p');
   span5.classList.add('wrongAnswer');
   span5.textContent = wrong;
 
-  wrongDiv.appendChild(wrong1);
   wrongDiv.appendChild(span1);
-  wrongDiv.appendChild(span2);
   wrongDiv.appendChild(span3);
-  wrongDiv.appendChild(span4);
   wrongDiv.appendChild(span5);
   return wrongDiv;
 };
