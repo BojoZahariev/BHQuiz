@@ -1,9 +1,9 @@
 var score = [];
 var allWrongs = [];
-var choice;
+
 //change that accordingly
 var maxScore = 3;
-var name = 'Quiz 1';
+var name = document.querySelector('#name').textContent.trim();
 var finalResult;
 
 const headDiv = document.querySelector('#headDiv');
@@ -14,15 +14,18 @@ const quizDiv = document.querySelector('#quizDiv');
 const quiz1 = document.querySelector('#quiz1');
 const quiz2 = document.querySelector('#quiz2');
 const quiz3 = document.querySelector('#quiz3');
-const next1 = document.querySelector('#next1');
-const next2 = document.querySelector('#next2');
+const quiz4 = document.querySelector('#quiz4');
+const quiz5 = document.querySelector('#quiz5');
+const quiz6 = document.querySelector('#quiz6');
+const quiz7 = document.querySelector('#quiz7');
+const quiz8 = document.querySelector('#quiz8');
+const quiz9 = document.querySelector('#quiz9');
+const quiz10 = document.querySelector('#quiz10');
+
 const finish = document.querySelector('#finish');
-const pre2 = document.querySelector('#pre2');
-const pre3 = document.querySelector('#pre3');
+
 let messages = document.getElementsByClassName('messages');
-const mes1 = document.querySelector('#mes1');
-const mes2 = document.querySelector('#mes2');
-const mes3 = document.querySelector('#mes3');
+
 const final = document.querySelector('#final');
 const finalScore = document.querySelector('#finalScore');
 const reload = document.querySelector('#reload');
@@ -30,26 +33,11 @@ const wrongAnswers = document.querySelector('#wrongAnswers');
 const prizeImg = document.querySelector('#prizeImg');
 const email = document.querySelector('#email');
 
-//const answers2 = document.querySelectorAll('.answers2');
-
 const clearScreen = () => {
   let containers = document.getElementsByClassName('containers');
   Array.from(containers).forEach(element => {
     element.style.display = 'none';
   });
-};
-
-const checkMatch = (answer, question, source) => {
-  let correct = document.getElementById(answer).textContent;
-  if (choice.trim() === correct.trim()) {
-    score[question] = 1;
-    //remove the stored wrong answer if changed to correct
-    allWrongs[question] = 0;
-  } else {
-    score[question] = 0;
-    //store the info for wrong answer
-    allWrongs[question] = outcome(document.getElementById(source).textContent, choice, correct);
-  }
 };
 
 //display the outcome
@@ -76,7 +64,6 @@ const outcome = (question, wrong, right) => {
 };
 
 const clickControl = (answer, cl) => {
-  let clickedBtn = document.getElementById(answer).textContent;
   let allAnswers = document.getElementsByClassName(cl);
   //remove the class for checked
   Array.from(allAnswers).forEach(element => {
@@ -84,8 +71,6 @@ const clickControl = (answer, cl) => {
   });
 
   document.getElementById(answer).classList.add('checked');
-
-  choice = clickedBtn;
 };
 
 const checkClicked = cl => {
@@ -109,43 +94,60 @@ const getPrize = () => {
   confetti();
 };
 
+const next = (n, nextOne, current) => {
+  if (checkClicked(`answers${n}`)) {
+    clearScreen();
+    //checkMatch(`correct${n}`, n - 1, `question${n}`);
+
+    getAnswer(`answers${n}`, `correct${n}`, n - 1, `question${n}`);
+
+    nextOne.style.display = 'flex';
+  } else {
+    current.appendChild(attachMessage());
+  }
+};
+
+const previous = pre => {
+  clearScreen();
+  pre.style.display = 'flex';
+};
+
+const attachMessage = () => {
+  let mess = document.createElement('p');
+  mess.classList.add('messages');
+  mess.classList.add('containers');
+  mess.textContent = 'Please make your choice first.';
+  mess.style.display = 'block';
+  return mess;
+};
+
+const getAnswer = (cl, answer, questionN, source) => {
+  let allAnswers = document.getElementsByClassName(cl);
+  const found = Array.from(allAnswers).find(element => element.classList.contains('checked'));
+
+  let correct = document.getElementById(answer).textContent;
+  if (found.textContent.trim() === correct.trim()) {
+    score[questionN] = 1;
+    //remove the stored wrong answer if changed to correct
+    allWrongs[questionN] = 0;
+  } else {
+    score[questionN] = 0;
+    //store the div for wrong answer
+    allWrongs[questionN] = outcome(document.getElementById(source).textContent, found.textContent.trim(), correct);
+  }
+};
+
 startBtn.addEventListener('click', e => {
   headDiv.style.display = 'none';
   quiz1.style.display = 'flex';
 });
 
-//Quiz1
-next1.addEventListener('click', e => {
-  if (checkClicked('answers1')) {
-    clearScreen();
-    checkMatch('correct1', 0, 'question1');
-    quiz2.style.display = 'flex';
-  } else {
-    mes1.style.display = 'block';
-  }
-});
-
-//Quiz2
-pre2.addEventListener('click', e => {
-  clearScreen();
-  quiz1.style.display = 'flex';
-});
-
-next2.addEventListener('click', e => {
-  if (checkClicked('answers2')) {
-    clearScreen();
-    checkMatch('correct2', 1, 'question2');
-    quiz3.style.display = 'flex';
-  } else {
-    mes2.style.display = 'block';
-  }
-});
-
-//Quiz3
+//Quiz10-Last
 finish.addEventListener('click', e => {
   if (checkClicked('answers3')) {
     clearScreen();
-    checkMatch('correct3', 2, 'question3');
+
+    getAnswer('answers3', 'correct3', 2, 'question3');
 
     //display the wrong ones
     allWrongs.forEach(element => {
@@ -161,13 +163,8 @@ finish.addEventListener('click', e => {
     }
     final.style.display = 'flex';
   } else {
-    mes3.style.display = 'block';
+    quiz3.appendChild(attachMessage());
   }
-});
-
-pre3.addEventListener('click', e => {
-  clearScreen();
-  quiz2.style.display = 'flex';
 });
 
 //Final
